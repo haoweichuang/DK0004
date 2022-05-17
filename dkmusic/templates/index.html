@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}音乐集会{% endblock %}
+
+{% block content %}
+<h1>音乐集会</h1>
+<div class="module">
+    <ul class="genre">
+        <li><a href="{% url 'dkmusic:index' %}">全部</a></li>
+        <li><a href="{% url 'dkmusic:index_by_genre' 'classic' %}">经典</a></li>
+        <li><a href="{% url 'dkmusic:index_by_genre' 'country' %}">乡村</a></li>
+        <li><a href="{% url 'dkmusic:index_by_genre' 'electronic' %}">电子音乐</a></li>
+        <li><a href="{% url 'dkmusic:index_by_genre' 'folk' %}">民族</a></li>
+        <li><a href="{% url 'dkmusic:index_by_genre' 'blues' %}">蓝调</a></li>
+        <li><a href="{% url 'dkmusic:index_by_genre' 'jazz' %}">爵士</a></li>
+        <li><a href="{% url 'dkmusic:index_by_genre' 'pop' %}">流行</a></li>
+        <li><a style="font-size:21px;" href="{% url 'dkmusic:index_by_genre' 'r_and_b' %}">R&B</a></li>
+        <li><a href="{% url 'dkmusic:index_by_genre' 'rock' %}">摇滚</a></li>
+        <li><a href="{% url 'dkmusic:index_by_genre' 'other' %}">其他</a></li>
+    </ul>
+    <div class="flow">
+        {% if posts %}
+        {% for post in posts %}
+          <div class="music-box">
+            <a href="{{ post.get_absolute_url }}"><h3>{{ post.name }}</h3></a>
+            <p>上传者&nbsp:&nbsp{{ post.user }}&nbsp&nbsp&nbsp&nbsp
+                创建于&nbsp:&nbsp{{ post.created|date:"SHORT_DATE_FORMAT" }}&nbsp&nbsp&nbsp&nbsp
+                分类&nbsp:&nbsp{{ post.get_genre_display }}</p>
+            <audio src="{{ post.audio_file.url }}" type="audio/mpeg" />
+          </div>
+        {% endfor %}
+        {% else %}
+          <p>抱歉！该分类暂无歌曲。</p>
+        {% endif %}
+    </div>
+    <div class="pagination">
+        {% if posts.has_other_pages %}
+        <span class="step-link">
+            {% if posts.has_previous %}
+              <a href="?page={{ posts.previous_page_number }}">上一页</a>
+            {% endif %}
+            <span class="current">
+                第{{ posts.number }}页&nbsp&nbsp&nbsp共{{ posts.paginator.num_pages }}页&nbsp&nbsp&nbsp
+            </span>
+            {% if posts.has_next %}
+              <a href="?page={{ posts.next_page_number }}">下一页</a>
+            {% endif %}
+        </span>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

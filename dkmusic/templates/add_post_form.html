@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}上传新作品{% endblock %}
+
+{% block content %}
+<h1>上传新作品</h1>
+<div class="module">
+    <form action="." method="post" ENCTYPE="multipart/form-data">
+        {% csrf_token %}
+        {{ add_post_form.as_p }}
+        <p><input type="submit" value="新增"></p>
+    </form>
+</div>
+{% endblock %}

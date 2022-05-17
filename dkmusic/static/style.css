@@ -1,0 +1,267 @@
+
+body {
+    margin: 0;
+    font-family: Ubuntu, sans-serif;
+}
+
+a {
+    color:#32cd32;
+    text-decoration:none;
+}
+
+a:hover {
+    color:#54FF9F;
+}
+
+#header {
+    padding: 10px 100px;
+    font-size: 14px;
+    overflow: auto;
+    background: #FF2D55;
+}
+
+#header .logo {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    float: left;
+    padding-top: 2px;
+}
+
+#header a {
+    color: #fff;
+}
+
+#header ul.menu {
+    list-style: none;
+    float: left;
+    margin:0;
+    padding:0;
+}
+
+#header ul.menu li {
+    float: left;
+    padding-left:30px;
+}
+
+#header ul.menu li a {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#header .log {
+    list-style: none;
+    float: right;
+    margin:0;
+    padding:0;
+}
+
+#header .log li {
+    float: right;
+    padding-left: 30px;
+}
+
+#header .log li a {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h1 {
+    padding-left: 100px;
+    color: #4dcc43;
+    padding-bottom:0px;
+    margin-bottom: 5px;
+}
+
+.module {
+    overflow: auto;
+    padding: 10px 100px;
+    float: left;
+}
+
+.module p {
+    margin: 10px 0 20px;
+    width: 100%;
+    float: left;
+    color: #FF2D55;
+    font-weight:bold;
+}
+
+.module ul.genre, .my_studio_menu {
+    list-style: none;
+    float: left;
+    margin:0;
+    padding:0;
+}
+
+.module ul.genre li, .my_studio_menu li {
+    float: left;
+    padding-right:30px;
+}
+
+.module ul.genre li a, .my_studio_menu li a {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.flow {
+    margin-top: 50px;
+
+}
+
+.music-box {
+    margin-bottom: 35px;
+    border-left: 5px solid #FF2D55;
+    padding-left: 5px;
+}
+
+.music-box h3 {
+    padding-top: 0px;
+    margin-top: 1px;
+    margin-bottom: 3px;
+    color: black;
+}
+
+.music-box p {
+    padding-top: 0px;
+    margin-top: 1px;
+    margin-bottom: 10px;
+}
+
+
+form p {
+    overflow: auto;
+}
+
+.errorlist {
+    color: #ae2c2c;
+    margin: 0;
+}
+
+.helptext {
+    margin:0 0 20px 0;
+    color:#aaa;
+    clear:both;
+    float:left;
+    font-size:14px;
+    margin-bottom: 0;
+    padding-bottom:0;
+}
+
+label {
+    float: left;
+    clear: both;
+    margin: 0 0 8px 0;
+}
+
+input, select, textarea {
+    border:1px solid #ccc;
+    padding:8px 12px;
+    font-size:16px;
+    font-family:Ubuntu, sans-serif;
+    float:left;
+    clear:both;
+    width:300px;
+}
+
+textarea {
+    height:80px;
+}
+
+input[type=submit], a.button {
+    background:#FF2D55;
+    color:#fff;
+    font-size:24px;
+    border:none;
+    padding:10px 20px;
+    margin:20px 0;
+}
+
+#register {
+    padding-top: 0px;
+    margin-top: 0;
+    font-size: 20px;
+}
+
+#password-change ul {
+    display: none;
+}
+
+#password-change p:nth-child(5) {
+    display: none;
+}
+
+.audiojs {
+	width: 460px;
+	height: 36px;
+	background: #FF2D55;
+	overflow: hidden;
+	font-family: monospace;
+	font-size: 12px;
+	-webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+	-o-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.audiojs .scrubber {
+	position: relative;
+	float: left;
+	width: 280px;
+	background: white;
+	height: 14px;
+	margin: 10px;
+	border-top: 1px solid #3f3f3f;
+	border-left: 0px;
+	border-bottom: 0px;
+	overflow: hidden;
+}
+
+.audiojs .progress {
+    background: #4dcc43;
+}
+
+.audiojs .loaded {
+    background: white;
+}
+
+#info {
+    margin-top: 15px;
+}
+
+.module #tag {
+    margin-top: 30px;
+    background: #4dcc43;
+    color: white;
+    font-size: 1.3em;
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#description {
+    margin-top: 30px;
+    padding: 0;
+    background: #efefef;
+    overflow: auto;
+    margin-bottom: 30px;
+}
+
+#description p{
+    color: #4dcc43;
+    padding-left: 8px;
+    padding-top: 5px;
+    margin: 0;
+}
+
+.module #comment-button a {
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#comment-list {
+    margin-top: 30px;
+}

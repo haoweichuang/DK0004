@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}登录DKMUSIC{% endblock %}
+
+{% block content %}
+<h1>登录DKMUSIC</h1>
+<div class="module">
+    {% if form.errors %}
+        <p>您的用户名与您的密码不匹配，请再试一次。</p>
+    {% else %}
+        <p>请输入用户名和密码登录或<a href="{% url 'dkmusic:register' %}">注册新账号</a></p>
+    {% endif %}
+    <div class="login-form">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ next }}" />
+            <p><input type="submit" value="登录"></p>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

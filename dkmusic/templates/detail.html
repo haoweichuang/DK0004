@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ post.name }}</h1>
+<div class="module">
+    <p class="detail-info">上传者&nbsp:&nbsp{{ post.user }}&nbsp&nbsp&nbsp&nbsp
+        创建于&nbsp:&nbsp{{ post.created|date:"SHORT_DATE_FORMAT" }}&nbsp&nbsp&nbsp&nbsp
+        分类&nbsp:&nbsp{{ post.get_genre_display }}</p>
+    <div><audio src="{{ post.audio_file.url }}" type="audio/mpeg" /></div>
+
+    <div id="description">
+        <p>{{ post.description|linebreaks }}</p>
+    </div>
+
+    <a style="color:#4dcc43; font-size:1.3em; font-weight:bold;" href="{% url 'dkmusic:comment' post.slug %}">添加评论(需要登录)</a>
+
+    <div id="comment-list">
+        {% if comments %}
+          {% for comment in comments %}
+            <p style="color:#8F8F8F; padding:0; margin:0; border-top:2px solid #8B8970">{{ comment.user }}于{{ comment.created|date:"SHORT_DATE_FORMAT" }}写道：
+                </p>
+            <div>{{ comment.body|linebreaks }}</div>
+          {% endfor %}
+        {% else %}
+          <p style="color:#8F8F8F;">该作品尚未收到评论。</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

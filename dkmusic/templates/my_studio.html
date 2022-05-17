@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}我的工作室{% endblock %}
+
+{% block content %}
+<h1>Hi {{ user.get_username }}，欢迎来到工作室！</h1>
+<div class="module">
+    <ul class="my_studio_menu">
+        <li><a href="{% url 'dkmusic:studio' %}">我的所有作品</a></li>
+        <li><a href="{% url 'dkmusic:add_post' %}">新增作品</a></li>
+        <li><a href="{% url 'password_change' %}">修改密码</a></li>
+    </ul>
+    {% if new_post %}
+    {% else %}
+    <div class="flow">
+        {% if posts %}
+        {% for post in posts %}
+          <div class="music-box">
+            <a style="color:black;" href="{% url 'dkmusic:editDetail' post.slug %}"><h3>{{ post.name }}</h3></a>
+            <p>创建于&nbsp:&nbsp{{ post.created|date:"SHORT_DATE_FORMAT" }}&nbsp&nbsp&nbsp&nbsp
+                分类&nbsp:&nbsp{{ post.get_genre_display }}</p>
+            <audio src="{{ post.audio_file.url }}" type="audio/mpeg" />
+          </div>
+        {% endfor %}
+        {% else %}
+          <p>抱歉！您暂无上传作品。</p>
+        {% endif %}
+    </div>
+    <div class="pagination">
+        {% if posts.has_other_pages %}
+        <span class="step-link">
+            {% if posts.has_previous %}
+              <a href="?page={{ posts.previous_page_number }}">上一页</a>
+            {% endif %}
+            <span class="current">
+                第{{ posts.number }}页&nbsp&nbsp&nbsp共{{ posts.paginator.num_pages }}页&nbsp&nbsp&nbsp
+            </span>
+            {% if posts.has_next %}
+              <a href="?page={{ posts.next_page_number }}">下一页</a>
+            {% endif %}
+        </span>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

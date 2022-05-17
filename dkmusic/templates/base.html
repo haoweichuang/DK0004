@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'jquery-ui.css' %}" rel="stylesheet">
+    <link href="{% static 'jquery-ui.structure.css' %}" rel="stylesheet">
+    <link href="{% static 'jquery-ui.theme.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <a href="/" class="logo">DKMUSIC</a>
+        <ul class="menu">
+            <li><a href="/">音乐集会</a></li>
+            <li><a href="{% url 'dkmusic:popular' %}">正在流行</a></li>
+            <li><a href="{% url 'dkmusic:studio' %}">我的工作室</a></li>
+            <li><a href="{% url 'dkmusic:about' %}">关于</a></li>
+        </ul>
+        <ul class="log">
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">登出</a></li>
+            {% else %}
+                <li><a href="{% url 'dkmusic:register' %}">注册</a></li>
+                <li><a href="{% url 'login' %}">登录</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="{% static 'js/jquery-3.1.1.js' %}"></script>
+    <script src="{% static 'audiojs/audio.min.js' %}"></script>
+    <script>
+        audiojs.events.ready(function() {
+            var as = audiojs.createAll();
+        });
+    </script>
+</body>
+</html>
